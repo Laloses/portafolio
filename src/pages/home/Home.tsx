@@ -1,10 +1,17 @@
+import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import { useState } from "react";
-import "./App.css";
-import reactLogo from "./assets/react.svg";
+import reactLogo from "../../assets/react.svg";
+import { useToogleTheme } from "../../context/ThemeContext";
 import portfolioLogo from "/briefcase.png";
 
-function App() {
+export default function Home() {
+  // Misc
+  const toggleColorMode = useToogleTheme();
+  const theme = useTheme();
+  // State
   const [count, setCount] = useState(0);
 
   return (
@@ -20,25 +27,31 @@ function App() {
         </a>
       </Grid>
       <Grid item xs={12}>
-        <h1>Vite + React + Material UI + API</h1>
+        <Typography variant="h1">Vite + React + Material UI + API</Typography>
       </Grid>
-      <Grid item xs={12} padding={'2em'}>
-        <button onClick={() => setCount((count) => count + 1)}>
+      <Grid item xs={12} padding={"2em"}>
+        <Button
+          variant="outlined"
+          onClick={() => setCount((count) => count + 1)}
+        >
           count is {count}
-        </button>
+        </Button>
+      </Grid>
+      <Grid item xs={12} padding={"2em"}>
+        <Button variant="contained" onClick={toggleColorMode}>
+          {theme.palette.mode} mode
+        </Button>
       </Grid>
       <Grid item xs={12}>
-        <p>
+        <Typography paragraph>
           Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        </Typography>
       </Grid>
       <Grid item xs={12}>
-        <p style={{color: '#888'}}>
+        <Typography paragraph color={"GrayText"}>
           Click on the Vite and React logos to learn more
-        </p>
+        </Typography>
       </Grid>
     </Grid>
   );
 }
-
-export default App;
