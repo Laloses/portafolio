@@ -1,34 +1,24 @@
-.app {
-  text-align: center;
-  height: 100vh;
+/* 
+  https://mui.com/material-ui/customization/breakpoints/#default-breakpoints
 
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-  }
+  xs, extra-small: 0px
+  sm, small: 600px
+  md, medium: 900px
+  lg, large: 1200px
+  xl, extra-large: 1536px
+*/
+:root {
+  --xs: 0px;
+  --sm: 600px;
+  --md: 900px;
+  --lg: 1200px;
+  --xl: 1536px;
 
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #4e4f58aa);
-  }
-  .logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-  }
-
-
-  @media (prefers-reduced-motion: no-preference) {
-    .logo[alt="React logo"] {
-      animation: logo-spin infinite 20s linear;
-    }
-  }
+  --header-height: 64px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media (max-width: 600px) {
+  :root {
+    --header-height: 56px;
   }
 }

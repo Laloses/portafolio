@@ -6,6 +6,7 @@ import { useState } from "react";
 import reactLogo from "../../assets/react.svg";
 import { useToogleTheme } from "../../context/ThemeContext";
 import portfolioLogo from "/briefcase.png";
+import "./_home.css";
 
 export default function Home() {
   // Misc
@@ -15,7 +16,7 @@ export default function Home() {
   const [count, setCount] = useState(0);
 
   return (
-    <Grid className="app" container alignContent={"center"}>
+    <Grid className="home" container alignContent={"center"}>
       <Grid item xs={6} textAlign={"end"}>
         <a href="https://vitejs.dev" target="_blank">
           <img src={portfolioLogo} className="logo" alt="Portfolio logo" />

@@ -1,0 +1,17 @@
+header {
+    .search {
+        display: flex;
+        justify-content: center;
+        flex-grow: 0.5;
+        flex-basis: 4rem;
+    }
+    .menus {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+    }
+}
+
+#root {
+    padding-top: 64px;
+}

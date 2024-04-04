@@ -22,11 +22,19 @@ module.exports = {
             name: '@mui/material', //https://mui.com/material-ui/guides/minimizing-bundle-size/#option-one-use-path-imports
             message: 'Use imports from @mui/material/<component>',
           },
+          {
+            name: '@mui/icons-material', //https://mui.com/material-ui/guides/minimizing-bundle-size/#option-one-use-path-imports
+            message: 'Use imports from @mui/icons-material/<icon>',
+          },
         ],
         patterns: [
           {
             group: ['@mui/*/*/*'], //https://mui.com/material-ui/guides/minimizing-bundle-size/#option-one-use-path-imports
             message: 'Material UI only support first and second-level imports. Use imports from @mui/material/<component>',
+          },
+          {
+            group: ['@mui/icons-material/*/*'], //https://mui.com/material-ui/guides/minimizing-bundle-size/#option-one-use-path-imports
+            message: 'Material UI only support first and second-level imports. Use imports from @mui/icons-material/<icon>',
           },
         ],
       },
