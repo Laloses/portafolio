@@ -1,0 +1,14 @@
+# Repository local hooks
+repos:
+  - repo: local
+    hooks:
+      # Linting with Eslint using npm command
+      - id: eslint
+        name: eslint
+        entry: npm run lint
+        language: system
+      # Prettier with npm command
+      - id: prettier
+        name: prettier
+        entry: npm run prettier
+        language: system

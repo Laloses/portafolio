@@ -1,17 +1,43 @@
 header {
+  & > div.MuiToolbar-root .search {
+    margin-left: auto;
+  }
+  .search {
+    display: flex;
+    justify-content: end;
+    flex-grow: 0.5;
+    flex-basis: 4rem;
+  }
+  .menus {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  button#menu-icon {
+    display: none;
+  }
+
+  @media (max-width: 1200px) {
     .search {
-        display: flex;
-        justify-content: center;
-        flex-grow: 0.5;
-        flex-basis: 4rem;
+      flex-grow: 1;
     }
     .menus {
-        display: flex;
-        justify-content: center;
-        flex-grow: 1;
+      display: none;
     }
-}
+    button#menu-icon {
+      display: block;
+    }
+    button#web-settings {
+      display: none;
+    }
+    .title-developer {
+      display: none;
+    }
+  }
 
-#root {
-    padding-top: 64px;
+  @media (max-width: 600px) {
+    .search {
+      flex-grow: 0;
+    }
+  }
 }
