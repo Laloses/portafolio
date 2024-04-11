@@ -17,10 +17,8 @@ header {
     display: none;
   }
 
+  /* medium */
   @media (max-width: 1200px) {
-    .search {
-      flex-grow: 1;
-    }
     .menus {
       display: none;
     }
@@ -30,14 +28,27 @@ header {
     button#web-settings {
       display: none;
     }
+  }
+
+  /* small */
+  @media (max-width: 600px) {
+    h6 {
+      /* Even if the box width is smaller, the text content remains the same, showing overflow */
+      white-space: nowrap;
+      transform: translateY(-200%);
+
+      &.hide {
+        width: 0;
+      }
+      &.show {
+        transform: translateY(0);
+      }
+    }
     .title-developer {
       display: none;
     }
-  }
-
-  @media (max-width: 600px) {
-    .search {
-      flex-grow: 0;
+    .search.searching {
+      flex-grow: 1;
     }
   }
 }
