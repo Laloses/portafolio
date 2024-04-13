@@ -7,7 +7,9 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useTheme, type SxProps } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useCallback, useMemo, useState } from 'react';
+import logoTransparent from '../../assets/image/logo M.png';
 import MobileDrawer from '../drawer/MobileDrawer';
 import SearchBar from '../search/SearchBar';
 import './_header.css';
@@ -16,10 +18,12 @@ import { menus } from './header.utils';
 //   const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export default function Header() {
+  // Misc
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   // State
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
-  const theme = useTheme();
 
   // Handlers
   const handleDrawerToggle = useCallback(() => {
@@ -70,8 +74,23 @@ export default function Header() {
             sx={styleTitleMobile}
             className={`${isSearching ? 'hide' : 'show'}`}
           >
-            Eduardo Martell &nbsp;
-            <Typography className="title-developer" variant="overline">
+            {isMobile && 'Lalo'}
+            <Box
+              className="logo"
+              sx={{
+                paddingRight: theme.spacing(1),
+                paddingLeft: isMobile ? theme.spacing(1) : 0,
+              }}
+            >
+              <img alt="Lalo Matell logo" src={logoTransparent} />
+            </Box>
+            {!isMobile && 'Eduardo Martell'}
+            {isMobile && 'Dev'}
+            <Typography
+              className="title-developer"
+              variant="overline"
+              sx={{ paddingLeft: theme.spacing(1) }}
+            >
               Developer
             </Typography>
           </Typography>

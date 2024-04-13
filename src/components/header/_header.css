@@ -1,4 +1,16 @@
 header {
+  h6 {
+    display: flex;
+    align-items: center;
+
+    div.logo {
+      display: inline;
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
   & > div.MuiToolbar-root .search {
     margin-left: auto;
   }
@@ -32,6 +44,9 @@ header {
 
   /* small */
   @media (max-width: 600px) {
+    & > div {
+      justify-content: space-between;
+    }
     h6 {
       /* Even if the box width is smaller, the text content remains the same, showing overflow */
       white-space: nowrap;
@@ -47,8 +62,13 @@ header {
     .title-developer {
       display: none;
     }
-    .search.searching {
-      flex-grow: 1;
+    & > div.MuiToolbar-root .search {
+      flex-grow: 0;
+      margin-left: 0;
+
+      &.searching {
+        flex-grow: 1;
+      }
     }
   }
 }
