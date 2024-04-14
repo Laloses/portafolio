@@ -20,9 +20,8 @@ body {
 
 #root {
   position: relative;
-  min-height: 100vh;
+  min-height: var(--vh-mobile);
   width: 100%;
-  padding-top: var(--header-height);
 }
 
 #root::after {

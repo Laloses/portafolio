@@ -16,8 +16,6 @@ import SearchBar from '../search/SearchBar';
 import './_header.css';
 import { menus } from './header.utils';
 
-//   const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
 export default function Header() {
   // Misc
   const theme = useTheme();
@@ -58,7 +56,7 @@ export default function Header() {
 
   return (
     <>
-      <AppBar position="absolute" color="primary">
+      <AppBar position="sticky" color="primary">
         <Toolbar>
           {/* Mobile button */}
           <IconButton
@@ -115,7 +113,7 @@ export default function Header() {
             sx={styleSearchBarWrapper}
           >
             <SearchBar
-              placeholder={'Busdcar en toda la página'}
+              placeholder={'Buscar en toda la página'}
               widthExpand={25}
               onFocusChange={handleMobileSearch}
             />
