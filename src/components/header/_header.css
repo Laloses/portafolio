@@ -5,9 +5,17 @@ header {
 
     div.logo {
       display: inline;
+
       img {
         width: 70px;
         height: 70px;
+        animation: logo-spin 1s;
+        filter: drop-shadow(0 0 0.2em #ccccccaa);
+
+        &:hover,
+        &:active {
+          filter: drop-shadow(0 0 0.4em hsla(0, 100%, 80%, 0.667));
+        }
       }
     }
   }
@@ -50,13 +58,15 @@ header {
     h6 {
       /* Even if the box width is smaller, the text content remains the same, showing overflow */
       white-space: nowrap;
-      transform: translateY(-200%);
+      transform: translateX(-200%);
+      opacity: 0;
 
       &.hide {
         width: 0;
       }
       &.show {
         transform: translateY(0);
+        opacity: 1;
       }
     }
     .title-developer {
@@ -70,5 +80,14 @@ header {
         flex-grow: 1;
       }
     }
+  }
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

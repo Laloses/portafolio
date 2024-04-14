@@ -5,9 +5,9 @@ import People from '@mui/icons-material/People';
 import School from '@mui/icons-material/School';
 
 export const menus = [
-  { name: 'About me', icon: <AccountBoxIcon />, href: '#about' },
-  { name: 'Skills', icon: <School />, href: '#skills' },
-  { name: 'Projects', icon: <People />, href: '#projects' },
-  { name: 'Experiences', icon: <GraphicEqIcon />, href: '#experiences' },
-  { name: 'Contact', icon: <ChatIcon />, href: '#contact' },
+  { name: 'Sobre mí', icon: <AccountBoxIcon />, href: '#about' },
+  { name: 'Hablidades', icon: <School />, href: '#skills' },
+  { name: 'Proyectos', icon: <People />, href: '#projects' },
+  { name: 'Experiencias', icon: <GraphicEqIcon />, href: '#experiences' },
+  { name: 'Contacto', icon: <ChatIcon />, href: '#contact' },
 ];

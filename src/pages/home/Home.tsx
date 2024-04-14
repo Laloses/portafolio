@@ -1,52 +1,40 @@
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
-import { useState } from 'react';
-import useToogleTheme from '../../hooks/useToggleTheme';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useMemo } from 'react';
 import './_home.css';
-import portfolioLogo from '/briefcase.png';
 
 export default function Home() {
   // Misc
-  const toggleColorMode = useToogleTheme();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   // State
-  const [count, setCount] = useState(0);
+  const years = useMemo(() => new Date().getFullYear() - 2022, []);
 
   return (
-    <Grid className="home" container alignContent={'center'}>
-      <Grid item xs={12} textAlign={'center'}>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={portfolioLogo} className="logo" alt="Portfolio logo" />
-        </a>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography variant="h1">Vite + React + Material UI + API</Typography>
-      </Grid>
-      <Grid item xs={12} padding={'2em'}>
-        <Button
-          variant="outlined"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          count is {count}
-        </Button>
-      </Grid>
-      <Grid item xs={12} padding={'2em'}>
-        <Button variant="contained" onClick={toggleColorMode}>
-          {theme.palette.mode} mode
-        </Button>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography paragraph>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <Typography paragraph color={'GrayText'}>
-          Click on the Vite and React logos to learn more
-        </Typography>
-      </Grid>
-    </Grid>
+    <Box className="home">
+      <Typography variant="h2">Bienvenido 😁</Typography>
+      <Typography variant="h4">
+        Soy un desarrollador web con {years} años de experiencia. <br />
+        <br /> Aquí encontrarás información sobre mí, mis proyectos, mis
+        habilidades y más detalles curiosos.
+      </Typography>
+      <Typography variant="h4" color={'GrayText'}>
+        <code>
+          Esta página esta en construcción, regresa pronto para ver las
+          actualizaciones si la información que buscas no está disponible.
+        </code>
+      </Typography>
+      <aside>
+        {!isMobile && (
+          <img
+            height={700}
+            alt="rocket"
+            src="https://www.acmerocketengine.com/homePageAssets/circle.png"
+          />
+        )}
+      </aside>
+    </Box>
   );
 }

@@ -10,6 +10,7 @@ import { useTheme, type SxProps } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useCallback, useMemo, useState } from 'react';
 import logoTransparent from '../../assets/image/logo M.png';
+import useToogleTheme from '../../hooks/useToggleTheme';
 import MobileDrawer from '../drawer/MobileDrawer';
 import SearchBar from '../search/SearchBar';
 import './_header.css';
@@ -21,6 +22,7 @@ export default function Header() {
   // Misc
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const toggleColorMode = useToogleTheme();
   // State
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -46,7 +48,7 @@ export default function Header() {
   const styleTitleMobile: SxProps = useMemo(
     () => ({
       [theme.breakpoints.down('sm')]: {
-        transition: theme.transitions.create(['transform'], {
+        transition: theme.transitions.create(['transform', 'opacity'], {
           duration: '0.5s',
         }),
       },
@@ -56,7 +58,7 @@ export default function Header() {
 
   return (
     <>
-      <AppBar position="fixed" color="primary">
+      <AppBar position="absolute" color="primary">
         <Toolbar>
           {/* Mobile button */}
           <IconButton
@@ -113,11 +115,17 @@ export default function Header() {
             sx={styleSearchBarWrapper}
           >
             <SearchBar
-              placeholder={'Search on all the page'}
+              placeholder={'Busdcar en toda la página'}
               widthExpand={25}
               onFocusChange={handleMobileSearch}
             />
           </Box>
+          {/* Theme */}
+          {!isMobile && (
+            <Button variant="contained" onClick={toggleColorMode}>
+              Tema {theme.palette.mode}
+            </Button>
+          )}
           {/* Settings */}
           <IconButton
             id="web-settings"
