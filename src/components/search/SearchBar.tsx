@@ -1,15 +1,10 @@
 import SearchIcon from '@mui/icons-material/Search';
 import Box from '@mui/material/Box';
 import InputBase, { type InputBaseProps } from '@mui/material/InputBase';
-import { SxProps, alpha, styled, useTheme } from '@mui/material/styles';
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type PropsWithChildren,
-} from 'react';
+import type { SxProps } from '@mui/material/styles';
+import { alpha, styled, useTheme } from '@mui/material/styles';
+import type { PropsWithChildren } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 interface Props {
   placeholder: string;
