@@ -3,7 +3,6 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import { useState } from 'react';
-import reactLogo from '../../assets/react.svg';
 import useToogleTheme from '../../hooks/useToggleTheme';
 import './_home.css';
 import portfolioLogo from '/briefcase.png';
@@ -17,14 +16,9 @@ export default function Home() {
 
   return (
     <Grid className="home" container alignContent={'center'}>
-      <Grid item xs={6} textAlign={'end'}>
+      <Grid item xs={12} textAlign={'center'}>
         <a href="https://vitejs.dev" target="_blank">
           <img src={portfolioLogo} className="logo" alt="Portfolio logo" />
-        </a>
-      </Grid>
-      <Grid item xs={6} textAlign={'start'}>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </Grid>
       <Grid item xs={12}>
