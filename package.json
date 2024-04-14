@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint --no-warn-ignored --max-warnings 0 .",
+    "lint": "eslint --no-warn-ignored --max-warnings 0 --fix .",
     "preview": "vite preview",
     "prettier": "npx prettier --write ."
   },

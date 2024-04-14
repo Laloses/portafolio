@@ -4,3 +4,5 @@ node_modules
 README.md
 .*
 **/*.css
+*.config.js
+vite.config.ts
