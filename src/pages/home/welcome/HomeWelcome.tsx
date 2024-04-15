@@ -53,7 +53,9 @@ export default function HomeWelcome() {
             aria-hidden="true"
             style={{ textDecoration: 'none' }}
           >
-            <Typography variant="h1">🚀</Typography>
+            <Typography variant="h1" id="aboutWeb">
+              🚀
+            </Typography>
           </a>
         </Tooltip>
       </Divider>
