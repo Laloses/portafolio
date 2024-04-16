@@ -1,10 +1,11 @@
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { useTheme, type SxProps } from '@mui/material/styles';
 import './_homeAbout.css';
-import Stack from '@mui/material/Stack';
 
 export default function HomeAbout() {
   //Misc
@@ -54,68 +55,87 @@ export default function HomeAbout() {
             src="https://user-images.githubusercontent.com/25181517/192108891-d86b6220-e232-423a-bf5f-90903e6887c3.png"
             loading="lazy"
           />
+          <img
+            alt="github copilot"
+            src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*oRRpMJ9XqkRnYLhW.png"
+            loading="lazy"
+          />
+          <img
+            alt="cloudflare"
+            src="https://1000logos.net/wp-content/uploads/2020/09/Cloudflare-logo.png"
+            loading="lazy"
+          />
         </Box>
         <Typography variant="h5">
-          Este portafolio es una muestra de mi trabajo como desarrollador de
-          software. Está construido con las siguientes tecnologias, además de
-          ocupar Github Copilot y Cloudflare para los despliegues.
-          <br /> El código fuente está disponible en GitHub.
+          Éste portafolio es una muestra de mi trabajo como desarrollador de
+          software. Ésta versión (react-static), está construida con las
+          tecnologias de la izquierda. El código fuente está disponible en
+          GitHub.
         </Typography>
       </Box>
       <Box className="versions">
         <Box className="explication">
           <Typography variant="h5">
             Para seguir practicando diferentes tecnologías y herramientas, he
-            decidido hacer varios deploys está página, usando diferentes
-            metodologías en diversas tecnologías, para comparar experiencias; al
-            final lo que hace mejor a un ingeniero(a) de software, es la
-            expericencia.
+            decidido hacer varios deploys de ésta página, usando metodologías
+            similares, para comparar experiencias.
+            <blockquote>
+              Al final lo que hace mejor a un ingeniero(a) de software, es la
+              experiencia.
+            </blockquote>
           </Typography>
-          <br />
           <Typography variant="h5">
             Este sitio, por default, carga la versión estática de React, todo el
-            contenido esta escrito directamente en los componente, en el código.
+            contenido está escrito directamente en los componentes, en el
+            código.
           </Typography>
         </Box>
+        <Box className="tech_icons">
+          <img
+            alt="react"
+            src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png"
+            loading="lazy"
+          />
+          <img
+            alt="solidjs"
+            src="https://osawards.com/javascript/pic/2022/SolidJS.png"
+            loading="lazy"
+          />
+          <img
+            alt="astro"
+            src="https://github.com/marwin1991/profile-technology-icons/assets/54946572/397c0300-2e47-464e-81eb-6e991c9255fc"
+            loading="lazy"
+          />
+          <img
+            alt="nextjs"
+            src="https://github.com/marwin1991/profile-technology-icons/assets/136815194/5f8c622c-c217-4649-b0a9-7e0ee24bd704"
+            loading="lazy"
+          />
+        </Box>
       </Box>
-      <br />
-      <Container className="roadmap">
-        <Typography variant="h2">Roadmap</Typography>
-        <Typography variant="h5">
-          Las tecnologías que se han usado hasta ahora son:
-          <Stack spacing={2} mt={4}>
-            <span> 🚧 default: React CSR (Client Side Rendering)</span>
-          </Stack>
-          <br />
-          Las tecnologías que se usarán para los próximos deploys son:
-          <Stack spacing={2} mt={4}>
-            {/* React */}
-            <span> 📅 React SSR (Server Side Rendering)</span>
-            <span> 📅 React SSG (Static Site Generation)</span>
-            {/* Solid */}
-            <span> ⏰ SolidJS CSR (Client Side Rendering)</span>
-            <span> 📅 SolidJS SSR (Server Side Rendering)</span>
-            <span> 📅 SolidJS SSG (Static Site Generation)</span>
-            {/* Astro */}
-            <span> ⏰ Astro CSR (Client Side Rendering)</span>
-            <span> 📅 Astro SSR (Server Side Rendering)</span>
-            <span> 📅 Astro SSG (Static Site Generation)</span>
-            {/* NextJS */}
-            <span> ⏰ NextJS CSR (Client Side Rendering)</span>
-            <span> 📅 NextJS SSR (Server Side Rendering)</span>
-            <span> 📅 NextJS SSG (Static Site Generation)</span>
-          </Stack>
-        </Typography>
-      </Container>
       <Container className="keepReading">
         <Typography variant="body1" textAlign="center" mt={4}>
           Sigue descubriendo las tecnologías que se usarán en los próximos
-          deploys y más en ésta página.
+          deploys y más.
         </Typography>
         <Button variant="contained" href="/about-site">
           Seguir leyendo
         </Button>
       </Container>
+      <Divider aria-hidden="true">
+        <Tooltip title="Sobre esta página">
+          <a
+            role="a"
+            href="#roadmap"
+            aria-hidden="true"
+            style={{ textDecoration: 'none' }}
+          >
+            <Typography variant="h1" id="roadmap">
+              🗺️
+            </Typography>
+          </a>
+        </Tooltip>
+      </Divider>
     </Box>
   );
 }

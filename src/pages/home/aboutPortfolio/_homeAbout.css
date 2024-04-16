@@ -4,47 +4,42 @@ div[role='section'].about {
     margin-bottom: 2rem;
   }
 
+  .tech_icons {
+    max-width: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    img {
+      height: 100px;
+    }
+  }
+
   .tech {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-bottom: 2rem;
 
     h5 {
       display: inline-flex;
       margin-bottom: 2rem;
-      text-align: center;
-      width: 50%;
-    }
-
-    .tech_icons {
       max-width: 50%;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-
-      img {
-        width: 50px;
-        height: 50px;
-      }
     }
   }
 
   .versions {
     display: flex;
     align-items: center;
+    justify-content: space-around;
     margin-bottom: 2rem;
 
     .explication {
-      width: 50%;
+      max-width: 50%;
     }
-  }
-
-  .roadmap {
-    text-align: center;
   }
 
   .keepReading {
