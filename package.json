@@ -9,8 +9,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "npx @biomejs/biome lint --apply --error-on-warnings .",
-    "format": "npx @biomejs/biome format --write --error-on-warnings ."
+    "lint": "biome lint --apply --error-on-warnings --staged .",
+    "format": "biome format --write --error-on-warnings --staged ."
   },
   "keywords": ["portafolio"],
   "author": "laloses",
