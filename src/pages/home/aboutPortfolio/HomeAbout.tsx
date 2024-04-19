@@ -21,7 +21,7 @@ export default function HomeAbout() {
   };
 
   return (
-    <Box role="section" className="about" sx={wrapperStyle}>
+    <Box role="contentinfo" className="about" sx={wrapperStyle}>
       <Typography variant="h2">Acerca de ésta página</Typography>
       <Box className="tech">
         <Box className="tech_icons">
@@ -124,12 +124,7 @@ export default function HomeAbout() {
       </Container>
       <Divider aria-hidden="true">
         <Tooltip title="Sobre esta página">
-          <a
-            role="a"
-            href="#roadmap"
-            aria-hidden="true"
-            style={{ textDecoration: 'none' }}
-          >
+          <a href="#roadmap" style={{ textDecoration: 'none' }}>
             <Typography variant="h1" id="roadmap">
               🗺️
             </Typography>

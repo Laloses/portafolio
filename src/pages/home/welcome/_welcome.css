@@ -1,4 +1,4 @@
-div.welcome[role='section'] {
+div.welcome[role='contentinfo'] {
   min-height: calc(90vh - var(--header-height));
   display: grid;
   grid-template-columns: repeat(2, 1fr);

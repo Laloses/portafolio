@@ -22,7 +22,7 @@ export default function HomeWelcome() {
 
   return (
     <>
-      <Box role="section" className="welcome" sx={backgroundStyle}>
+      <Box role="contentinfo" className="welcome" sx={backgroundStyle}>
         <Typography variant="h2">Bienvenido 😁</Typography>
         <Typography variant="h4">
           Soy un desarrollador web con {years} años de experiencia. <br />
@@ -47,12 +47,7 @@ export default function HomeWelcome() {
       </Box>
       <Divider sx={backgroundStyle} aria-hidden="true">
         <Tooltip title="Sobre esta página">
-          <a
-            role="a"
-            href="#aboutWeb"
-            aria-hidden="true"
-            style={{ textDecoration: 'none' }}
-          >
+          <a href="#aboutWeb" style={{ textDecoration: 'none' }}>
             <Typography variant="h1" id="aboutWeb">
               🚀
             </Typography>

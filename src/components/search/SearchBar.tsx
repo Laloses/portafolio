@@ -28,6 +28,7 @@ export default function SearchBar(props: Props) {
     setIsFocused(false);
   }, []);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: https://github.com/biomejs/biome/issues/2149
   const setListener = useCallback(() => {
     const searchInput = searchRef.current;
     if (searchInput) {
@@ -41,16 +42,17 @@ export default function SearchBar(props: Props) {
         searchInput.removeEventListener('blur', handleBlur);
       }
     };
-  }, [handleBlur, handleFocus, searchRef]);
+  }, [handleBlur, handleFocus, searchRef.current]);
 
   const notifyParent = useCallback(() => {
     if (props.onFocusChange) {
       props.onFocusChange(isFocused);
     }
-  }, [isFocused]);
+  }, [isFocused, props.onFocusChange]);
 
-  // Effects
-  useEffect(setListener, [searchRef.current, setListener]);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: https://github.com/biomejs/biome/issues/2149
+  useEffect(setListener, [searchRef.current]);
+  // biome-ignore lint/correctness/useExhaustiveDependencies: https://github.com/biomejs/biome/issues/2149
   useEffect(notifyParent, [isFocused]);
 
   return (
@@ -75,6 +77,7 @@ function Search(props: SearchProps) {
   // State
   const theme = useTheme();
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   const style: SxProps = useMemo(
     () => ({
       position: 'relative',
@@ -141,7 +144,7 @@ const StyledInputBase = styled(InputBaseExtendWidth)(
         [theme.breakpoints.up('md')]: {
           width: '12ch',
           '&:focus': {
-            width: widthExpand + 'ch',
+            width: `${widthExpand}ch`,
           },
         },
       },

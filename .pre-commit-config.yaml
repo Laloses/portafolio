@@ -2,13 +2,13 @@
 repos:
   - repo: local
     hooks:
-      # Linting with Eslint using npm command
-      - id: eslint
-        name: eslint
+      # Linting using npm command
+      - id: lint
+        name: Lint code with Biome
         entry: npm run lint
         language: system
-      # Prettier with npm command
-      - id: prettier
-        name: prettier
-        entry: npm run prettier
+      # Format with npm command
+      - id: format
+        name: Format code with Biome
+        entry: npm run format
         language: system

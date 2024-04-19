@@ -8,7 +8,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import { useMemo } from 'react';
+import { useMemo, type JSX } from 'react';
 
 interface Props {
   handleDrawerToggle: () => void;
@@ -48,8 +48,8 @@ export default function MobileDrawer(props: Props) {
                 Menu
               </Typography>
             </ListItem>
-            {props.menus.map((menu, index) => (
-              <ListItem disablePadding key={index} divider>
+            {props.menus.map((menu) => (
+              <ListItem disablePadding key={menu.name} divider>
                 <ListItemButton>
                   <ListItemIcon>{menu.icon}</ListItemIcon>
                   <ListItemText primary={menu.name} />

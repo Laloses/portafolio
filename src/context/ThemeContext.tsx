@@ -8,12 +8,15 @@ import {
   useCallback,
 } from 'react';
 import { customTheme } from './customTheme';
+import { Constants } from '../globals/constants';
 
 interface ContextType {
   toggleTheme: () => void;
 }
 
-const themeContext = createContext<ContextType>({ toggleTheme: () => {} });
+const themeContext = createContext<ContextType>({
+  toggleTheme: Constants.EMPTY_FUNCTION,
+});
 export { themeContext as ThemeContext };
 
 export function ThemeAppProvider(props: { children?: ReactNode }) {

@@ -40,7 +40,7 @@ export default function Header() {
         transition: theme.transitions.create('flex-grow', { duration: '0.5s' }),
       },
     }),
-    [isSearching, theme]
+    [theme]
   );
 
   const styleTitleMobile: SxProps = useMemo(
@@ -96,9 +96,9 @@ export default function Header() {
           </Typography>
           {/* Web Menu */}
           <Box className="menus">
-            {menus.map((menu, index) => (
+            {menus.map((menu) => (
               <Button
-                key={index}
+                key={menu.name}
                 color="inherit"
                 href={menu.href}
                 startIcon={menu.icon}
