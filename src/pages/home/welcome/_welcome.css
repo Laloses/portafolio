@@ -1,19 +1,37 @@
-div.welcome[role='contentinfo'] {
-  min-height: calc(90vh - var(--header-height));
+div.welcome {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   row-gap: 1rem;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://th.bing.com/th/id/OIG4.hMc8n.nzHdWZ9L6uPtuL?pid=ImgGn");
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.2; 
+    z-index: 0;
+  }
+  & > * {
+    z-index: 1;
+    position: relative;
+  }
 
   h2 {
     text-align: center;
-    align-content: end;
+    align-content: center;
   }
-  h4 {
+  h6 {
     align-self: auto;
   }
   h2,
-  h4,
+  h6,
   p {
     width: 80%;
     justify-self: end;
@@ -24,13 +42,18 @@ div.welcome[role='contentinfo'] {
     grid-row: 1 / -1;
     grid-column: 2 / 3;
   }
+  .MuiDivider-fullWidth {
+    position: relative;
+    grid-column: 1 / -1;
+    margin-bottom: -2.5rem;
+  }
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, min-content);
     row-gap: 1rem;
     h2,
-    h4,
+    h6,
     p {
       width: 90%;
     }
@@ -38,7 +61,7 @@ div.welcome[role='contentinfo'] {
       opacity: 0.4;
     }
     aside,
-    h4:nth-of-type(1) {
+    h6:nth-of-type(1) {
       grid-row: 2 / 3;
       grid-column: 1 / -1;
     }
@@ -48,7 +71,7 @@ div.welcome[role='contentinfo'] {
     grid-template-rows: repeat(3, minmax(100px, min-content));
     row-gap: 1rem;
     h2,
-    h4,
+    h6,
     p {
       width: 90%;
       z-index: 1;
@@ -60,7 +83,7 @@ div.welcome[role='contentinfo'] {
       width: 100%;
       height: 100vh;
       /* make width of  */
-      background-image: url('https://www.acmerocketengine.com/homePageAssets/circle.png');
+      background-image: url("https://www.acmerocketengine.com/homePageAssets/circle.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;

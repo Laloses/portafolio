@@ -1,7 +1,7 @@
-div[role='contentinfo'].about {
+div[role="contentinfo"].about {
   h2 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
   }
 
   .tech_icons {
@@ -24,7 +24,7 @@ div[role='contentinfo'].about {
     justify-content: space-evenly;
     margin-bottom: 2rem;
 
-    h5 {
+    h6 {
       display: inline-flex;
       margin-bottom: 2rem;
       max-width: 50%;
@@ -43,12 +43,17 @@ div[role='contentinfo'].about {
   }
 
   .keepReading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 3rem 0;
+    text-align: center;
 
     p {
-      margin-bottom: 1rem;
+      margin-right: 1rem;
+      display: inline;
     }
+  }
+  .MuiDivider-fullWidth {
+    margin-bottom: -2.5rem;
+    position: relative;
+    z-index: 1;
   }
 }

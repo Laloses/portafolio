@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import './_home.css';
 import HomeAbout from './aboutPortfolio/HomeAbout';
-import HomeWelcome from './welcome/HomeWelcome';
 import HomeRoadmap from './roadmap/HomeRoadmap';
+import HomeWelcome from './welcome/HomeWelcome';
 
 export default function Home() {
   return (

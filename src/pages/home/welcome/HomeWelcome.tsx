@@ -1,12 +1,11 @@
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import type { SxProps } from '@mui/material/styles';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useMemo } from 'react';
 import './_welcome.css';
-import Tooltip from '@mui/material/Tooltip';
 
 export default function HomeWelcome() {
   // Misc
@@ -15,26 +14,24 @@ export default function HomeWelcome() {
   // State
   const years = useMemo(() => new Date().getFullYear() - 2022, []);
 
-  const isDark = theme.palette.mode === 'dark';
-  const backgroundStyle: SxProps = {
-    backgroundColor: isDark ? theme.palette.grey[700] : theme.palette.grey[200],
-  };
-
   return (
     <>
-      <Box role="contentinfo" className="welcome" sx={backgroundStyle}>
-        <Typography variant="h2">Bienvenido 😁</Typography>
-        <Typography variant="h4">
-          Soy un desarrollador web con {years} años de experiencia. <br />
-          <br /> Aquí encontrarás información sobre mí, mis proyectos, mis
-          habilidades y más detalles curiosos.
+      <Box className="welcome">
+        <Typography variant="h2">Bienvenido a mi Portafolio 😁</Typography>
+        <Typography variant="h6">
+          Soy un desarrollador web con {years} años de experiencia. Aquí
+          encontrarás información sobre mí, mis proyectos, mis habilidades y más
+          detalles curiosos.
+          <br />
+          <br />
+          <Typography variant="h6" color={theme.palette.warning.main}>
+            <code>
+              Esta página esta en construcción, regresa pronto para ver las
+              actualizaciones si la información que buscas no está disponible.
+            </code>
+          </Typography>
         </Typography>
-        <Typography variant="h4" color={theme.palette.warning.main}>
-          <code>
-            Esta página esta en construcción, regresa pronto para ver las
-            actualizaciones si la información que buscas no está disponible.
-          </code>
-        </Typography>
+        {/* TODO make a carrusel  */}
         <aside>
           {!isMobile && (
             <img
@@ -44,16 +41,16 @@ export default function HomeWelcome() {
             />
           )}
         </aside>
+        <Divider aria-hidden="true">
+          <Tooltip title="Sobre esta página">
+            <a href="#aboutWeb" style={{ textDecoration: 'none' }}>
+              <Typography variant="h1" id="aboutWeb">
+                🚀
+              </Typography>
+            </a>
+          </Tooltip>
+        </Divider>
       </Box>
-      <Divider sx={backgroundStyle} aria-hidden="true">
-        <Tooltip title="Sobre esta página">
-          <a href="#aboutWeb" style={{ textDecoration: 'none' }}>
-            <Typography variant="h1" id="aboutWeb">
-              🚀
-            </Typography>
-          </a>
-        </Tooltip>
-      </Divider>
     </>
   );
 }

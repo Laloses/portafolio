@@ -1,13 +1,18 @@
-import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import './_homeRoadmap.css';
+import type { SxProps } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 export default function HomeRoadmap() {
+  const isDark = useTheme().palette.mode === 'dark';
+  const opacity: SxProps = { '&::before': { opacity: isDark ? 0.2 : 0.5 } };
+
   return (
-    <Container className="roadmap">
+    <Box className="roadmap" sx={opacity}>
       <Typography variant="h2">Roadmap</Typography>
-      <Typography variant="h5">
+      <Typography variant="h6">
         Las tecnologías que se han usado hasta ahora son:
         <Stack spacing={2} mt={4}>
           <span> 🚧 default: React CSR (Client Side Rendering)</span>
@@ -32,6 +37,6 @@ export default function HomeRoadmap() {
           <span> 📅 NextJS SSG (Static Site Generation)</span>
         </Stack>
       </Typography>
-    </Container>
+    </Box>
   );
 }

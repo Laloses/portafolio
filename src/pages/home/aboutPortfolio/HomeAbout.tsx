@@ -14,10 +14,10 @@ export default function HomeAbout() {
   const isDark = theme.palette.mode === 'dark';
   const wrapperStyle: SxProps = {
     paddingX: theme.spacing(10),
-    paddingY: theme.spacing(5),
+    paddingTop: theme.spacing(5),
     backgroundColor: isDark
       ? theme.palette.background.default
-      : theme.palette.grey[500],
+      : theme.palette.grey[200],
   };
 
   return (
@@ -66,7 +66,7 @@ export default function HomeAbout() {
             loading="lazy"
           />
         </Box>
-        <Typography variant="h5">
+        <Typography variant="h6">
           Éste portafolio es una muestra de mi trabajo como desarrollador de
           software. Ésta versión (react-static), está construida con las
           tecnologias de la izquierda. El código fuente está disponible en
@@ -75,7 +75,7 @@ export default function HomeAbout() {
       </Box>
       <Box className="versions">
         <Box className="explication">
-          <Typography variant="h5">
+          <Typography variant="h6">
             Para seguir practicando diferentes tecnologías y herramientas, he
             decidido hacer varios deploys de ésta página, usando metodologías
             similares, para comparar experiencias.
@@ -84,8 +84,8 @@ export default function HomeAbout() {
               experiencia.
             </blockquote>
           </Typography>
-          <Typography variant="h5">
-            Este sitio, por default, carga la versión estática de React, todo el
+          <Typography variant="h6">
+            Éste sitio, por default, carga la versión estática de React, todo el
             contenido está escrito directamente en los componentes, en el
             código.
           </Typography>
@@ -118,7 +118,7 @@ export default function HomeAbout() {
           Sigue descubriendo las tecnologías que se usarán en los próximos
           deploys y más.
         </Typography>
-        <Button variant="contained" href="/about-site">
+        <Button variant="text" href="/about-site">
           Seguir leyendo
         </Button>
       </Container>
