@@ -75,6 +75,7 @@ div.welcome {
     p {
       width: 90%;
       z-index: 1;
+      justify-self: center;
     }
     aside {
       top: 0;

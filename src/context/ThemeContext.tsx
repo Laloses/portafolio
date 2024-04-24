@@ -1,4 +1,8 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import {
+  ThemeProvider,
+  createTheme,
+  responsiveFontSizes,
+} from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import {
   createContext,
@@ -33,16 +37,16 @@ export function ThemeAppProvider(props: { children?: ReactNode }) {
     () => ({ toggleTheme }) satisfies ContextType,
     [toggleTheme]
   );
-  const theme = useMemo(
-    () =>
-      createTheme({
-        ...customTheme,
-        palette: {
-          mode,
-        },
-      }),
-    [mode]
-  );
+  const theme = useMemo(() => {
+    const createdTheme = createTheme({
+      ...customTheme,
+      palette: {
+        mode,
+      },
+    });
+    const responsiveTheme = responsiveFontSizes(createdTheme);
+    return responsiveTheme;
+  }, [mode]);
 
   return (
     <themeContext.Provider value={context}>
