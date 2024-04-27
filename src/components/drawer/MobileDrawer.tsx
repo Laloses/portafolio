@@ -41,7 +41,11 @@ export default function MobileDrawer(props: Props) {
         <Box onClick={props.handleDrawerToggle} sx={{ height: '100vh' }}>
           <Divider />
           <List
-            sx={{ height: '99vh', display: 'flex', flexDirection: 'column' }}
+            sx={{
+              height: `${window.innerHeight}px`,
+              display: 'flex',
+              flexDirection: 'column',
+            }}
           >
             <ListItem divider>
               <Typography variant="h6" sx={{ padding: '1rem' }}>
