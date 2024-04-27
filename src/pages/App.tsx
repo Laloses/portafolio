@@ -4,6 +4,7 @@ import Header from '../components/header/Header';
 import '../styles/App.css';
 import Home from './home/Home';
 import { useCallback, useEffect } from 'react';
+import Footer from '../components/footer/Footer';
 
 function App() {
   const theme = useTheme();
@@ -24,6 +25,7 @@ function App() {
     <>
       <Header />
       <Home />
+      <Footer />
     </>
   );
 }
