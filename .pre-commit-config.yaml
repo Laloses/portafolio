@@ -2,6 +2,11 @@
 repos:
   - repo: local
     hooks:
+      # Typescript checking
+      - id: Typescript
+        name: Typescript checking
+        entry: npx tsc --noEmit
+        language: system
       # Linting using npm command
       - id: lint
         name: Lint code with Biome

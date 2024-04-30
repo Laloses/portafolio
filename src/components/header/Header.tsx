@@ -1,5 +1,4 @@
 import MenuIcon from '@mui/icons-material/Menu';
-import Settings from '@mui/icons-material/Settings';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -10,12 +9,11 @@ import { useTheme, type SxProps } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useCallback, useMemo, useState } from 'react';
 import logoTransparent from '../../assets/image/logo M.png';
-import useToogleTheme from '../../hooks/useToggleTheme';
 import MobileDrawer from '../drawer/MobileDrawer';
+import WebSettingButtonMenu from '../menu/WebSettingButtonMenut';
 import SearchBar from '../search/SearchBar';
 import './_header.css';
 import { menus } from './header.utils';
-import WebSettingButtonMenu from '../menu/WebSettingButtonMenut';
 
 export default function Header() {
   // Misc
