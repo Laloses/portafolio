@@ -15,12 +15,12 @@ import MobileDrawer from '../drawer/MobileDrawer';
 import SearchBar from '../search/SearchBar';
 import './_header.css';
 import { menus } from './header.utils';
+import WebSettingButtonMenu from '../menu/WebSettingButtonMenut';
 
 export default function Header() {
   // Misc
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const toggleColorMode = useToogleTheme();
   // State
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -113,27 +113,15 @@ export default function Header() {
             sx={styleSearchBarWrapper}
           >
             <SearchBar
-              placeholder={'Buscar en toda la página'}
+              placeholder={
+                isSearching ? 'Buscar en toda la página' : 'Buscar...'
+              }
               widthExpand={25}
               onFocusChange={handleMobileSearch}
             />
           </Box>
-          {/* Theme */}
-          {!isMobile && (
-            <Button variant="contained" onClick={toggleColorMode}>
-              Tema {theme.palette.mode}
-            </Button>
-          )}
-          {/* Settings */}
-          <IconButton
-            id="web-settings"
-            size="large"
-            aria-label="display more actions"
-            edge="end"
-            color="inherit"
-          >
-            <Settings />
-          </IconButton>
+          {/* Web Settings */}
+          <WebSettingButtonMenu />
         </Toolbar>
       </AppBar>
 
