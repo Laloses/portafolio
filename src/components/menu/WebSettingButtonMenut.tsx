@@ -96,7 +96,7 @@ export default function WebSettingButtonMenu() {
               </ListItemIcon>
               <ListItemText
                 primary="Cambiar a tema"
-                secondary={theme.palette.mode}
+                secondary={theme.palette.mode === 'dark' ? 'Claro' : 'Oscuro'}
                 primaryTypographyProps={{ color: 'textPrimary' }}
               />
             </MenuItem>

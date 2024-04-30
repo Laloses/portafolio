@@ -8,7 +8,11 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import { useMemo, type JSX } from 'react';
+import { useCallback, useMemo, useState, type JSX } from 'react';
+import { Brightness4Outlined } from '@mui/icons-material';
+import { useTheme } from '@mui/material/styles';
+import Grow from '@mui/material/Grow';
+import useToogleTheme from '../../hooks/useToggleTheme';
 
 interface Props {
   handleDrawerToggle: () => void;
@@ -18,6 +22,7 @@ interface Props {
 
 export default function MobileDrawer(props: Props) {
   // State
+  const [openSettings, setOpenSettings] = useState(false);
   const isiOS = useMemo(
     () =>
       typeof navigator !== 'undefined' &&
@@ -25,12 +30,18 @@ export default function MobileDrawer(props: Props) {
     []
   );
 
+  // handlers
+  const handleDrawerToggle = useCallback(() => {
+    setOpenSettings(false);
+    props.handleDrawerToggle();
+  }, [props.handleDrawerToggle]);
+
   return (
     <nav>
       <SwipeableDrawer
         anchor="left"
-        onOpen={props.handleDrawerToggle}
-        onClose={props.handleDrawerToggle}
+        onOpen={handleDrawerToggle}
+        onClose={handleDrawerToggle}
         open={props.mobileOpen}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.
@@ -38,7 +49,7 @@ export default function MobileDrawer(props: Props) {
         disableBackdropTransition={!isiOS}
         disableDiscovery={isiOS}
       >
-        <Box onClick={props.handleDrawerToggle} sx={{ height: '100vh' }}>
+        <Box sx={{ height: '100vh', overflow: 'hidden' }}>
           <Divider />
           <List
             sx={{
@@ -60,17 +71,60 @@ export default function MobileDrawer(props: Props) {
                 </ListItemButton>
               </ListItem>
             ))}
-            <ListItem disablePadding sx={{ marginTop: 'auto' }}>
-              <ListItemButton>
-                <ListItemIcon>
-                  <Settings />
-                </ListItemIcon>
-                <ListItemText primary={'Settings'} />
-              </ListItemButton>
-            </ListItem>
+            <MobileSettingsMenu
+              open={openSettings}
+              onToggleSettings={() => {
+                setOpenSettings((prev) => !prev);
+              }}
+            />
           </List>
         </Box>
       </SwipeableDrawer>
     </nav>
+  );
+}
+
+function MobileSettingsMenu(props: {
+  open: boolean;
+  onToggleSettings: () => void;
+}) {
+  // Misc
+  const theme = useTheme();
+  // Misc
+  const toggleColorMode = useToogleTheme();
+
+  return (
+    <>
+      <ListItem
+        disablePadding
+        sx={{ marginTop: 'auto' }}
+        onClick={props.onToggleSettings}
+      >
+        <ListItemButton>
+          <ListItemIcon>
+            <Settings />
+          </ListItemIcon>
+          <ListItemText primary={'Settings'} />
+        </ListItemButton>
+      </ListItem>
+      <Grow
+        in={props.open}
+        style={{
+          height: props.open ? 'auto' : 0,
+        }}
+      >
+        <ListItem onClick={toggleColorMode} disablePadding>
+          <ListItemButton>
+            <ListItemIcon>
+              <Brightness4Outlined />
+            </ListItemIcon>
+            <ListItemText
+              primary={'Cambiar a modo'}
+              secondary={theme.palette.mode === 'dark' ? 'Claro' : 'Oscuro'}
+            />
+          </ListItemButton>
+        </ListItem>
+      </Grow>
+    </>
   );
 }
