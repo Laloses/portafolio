@@ -9,7 +9,8 @@
       "./dist",
       "./build",
       "./out",
-      "./coverage"
+      "./coverage",
+      "**/*.gen.ts"
     ]
   },
   "formatter": {

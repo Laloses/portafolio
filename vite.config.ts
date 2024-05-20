@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import { browserslistToTargets } from 'lightningcss';
+import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,6 +11,7 @@ export default defineConfig({
       devTarget: 'esnext',
       plugins: [['@swc/plugin-styled-components', {}]],
     }),
+    TanStackRouterVite(),
   ],
   server: {
     open: true,

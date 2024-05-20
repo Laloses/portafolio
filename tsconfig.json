@@ -31,6 +31,7 @@
       "@mui/styled-engine": ["./node_modules/@mui/styled-engine-sc"]
     }
   },
-  "include": ["src"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

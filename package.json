@@ -20,6 +20,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.14",
+    "@tanstack/react-router": "^1.33.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -27,6 +28,9 @@
     "@biomejs/biome": "1.7.0",
     "@mui/types": "^7.2.14",
     "@swc/plugin-styled-components": "^1.5.122",
+    "@tanstack/router-devtools": "^1.33.4",
+    "@tanstack/router-vite-plugin": "^1.32.17",
+    "@types/node": "^20.12.12",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react-swc": "^3.6.0",
