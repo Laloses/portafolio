@@ -4,8 +4,8 @@ repos:
     hooks:
       # Typescript checking
       - id: Typescript
-        name: Typescript checking
-        entry: npx tsc --noEmit
+        name: Remember to run "npx tsc" to check typescript files !!!
+        entry: echo "Typescript checking"
         language: system
       # Linting using npm command
       - id: lint

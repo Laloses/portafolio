@@ -7,6 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useTheme, type SxProps } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { useNavigate } from '@tanstack/react-router';
 import { useCallback, useMemo, useState } from 'react';
 import logoTransparent from '../../assets/image/logo M.png';
 import MobileDrawer from '../drawer/MobileDrawer';
@@ -19,6 +20,7 @@ export default function Header() {
   // Misc
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const navigate = useNavigate();
   // State
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -71,6 +73,7 @@ export default function Header() {
             variant="h6"
             sx={styleTitleMobile}
             className={`${isSearching ? 'hide' : 'show'}`}
+            onClick={() => navigate({ to: '/' })}
           >
             {isMobile && 'Lalo'}
             <Box
@@ -98,7 +101,7 @@ export default function Header() {
               <Button
                 key={menu.name}
                 color="inherit"
-                href={menu.href}
+                onClick={() => navigate({ to: `/${menu.to}` })}
                 startIcon={menu.icon}
               >
                 &nbsp; {menu.name}

@@ -1,0 +1,13 @@
+#aboutme {
+    section {
+        margin: 2rem 0;
+
+        h2 {
+            margin-bottom: 2rem;
+        }
+        
+        &:nth-child(even) h2 {
+            text-align: right;
+        }
+    }
+}

@@ -1,26 +1,29 @@
+import { Brightness4Outlined } from '@mui/icons-material';
 import Settings from '@mui/icons-material/Settings';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
+import Grow from '@mui/material/Grow';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
-import { useCallback, useMemo, useState, type JSX } from 'react';
-import { Brightness4Outlined } from '@mui/icons-material';
+import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
-import Grow from '@mui/material/Grow';
+import { useNavigate } from '@tanstack/react-router';
+import { useCallback, useMemo, useState, type JSX } from 'react';
 import useToogleTheme from '../../hooks/useToggleTheme';
 
 interface Props {
   handleDrawerToggle: () => void;
   mobileOpen: boolean;
-  menus: { name: string; icon: JSX.Element; href: string }[];
+  menus: { name: string; icon: JSX.Element; to: string }[];
 }
 
 export default function MobileDrawer(props: Props) {
+  // Misc
+  const navigate = useNavigate();
   // State
   const [openSettings, setOpenSettings] = useState(false);
   const isiOS = useMemo(
@@ -35,6 +38,14 @@ export default function MobileDrawer(props: Props) {
     setOpenSettings(false);
     props.handleDrawerToggle();
   }, [props.handleDrawerToggle]);
+
+  const goTo = useCallback(
+    (to: string) => {
+      navigate({ to });
+      props.handleDrawerToggle();
+    },
+    [navigate, props.handleDrawerToggle]
+  );
 
   return (
     <nav>
@@ -64,7 +75,14 @@ export default function MobileDrawer(props: Props) {
               </Typography>
             </ListItem>
             {props.menus.map((menu) => (
-              <ListItem disablePadding key={menu.name} divider>
+              <ListItem
+                disablePadding
+                key={menu.name}
+                onClick={() => {
+                  goTo(menu.to);
+                }}
+                divider
+              >
                 <ListItemButton>
                   <ListItemIcon>{menu.icon}</ListItemIcon>
                   <ListItemText primary={menu.name} />

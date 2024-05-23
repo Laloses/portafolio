@@ -16,9 +16,15 @@ import { Route as rootRoute } from './routes/__root'
 
 // Create Virtual Routes
 
+const AboutmeLazyImport = createFileRoute('/aboutme')()
 const IndexLazyImport = createFileRoute('/')()
 
 // Create/Update Routes
+
+const AboutmeLazyRoute = AboutmeLazyImport.update({
+  path: '/aboutme',
+  getParentRoute: () => rootRoute,
+} as any).lazy(() => import('./routes/aboutme.lazy').then((d) => d.Route))
 
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
@@ -36,11 +42,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
+    '/aboutme': {
+      id: '/aboutme'
+      path: '/aboutme'
+      fullPath: '/aboutme'
+      preLoaderRoute: typeof AboutmeLazyImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren({ IndexLazyRoute })
+export const routeTree = rootRoute.addChildren({
+  IndexLazyRoute,
+  AboutmeLazyRoute,
+})
 
 /* prettier-ignore-end */
