@@ -4,16 +4,22 @@ repos:
     hooks:
       # Typescript checking
       - id: Typescript
-        name: Remember to run "npx tsc" to check typescript files !!!
-        entry: echo "Typescript checking"
+        name: Typescript checking
+        entry: npx tsc
         language: system
+        pass_filenames: false
+        types: [file]
       # Linting using npm command
       - id: lint
         name: Lint code with Biome
         entry: npm run lint
         language: system
+        pass_filenames: false
+        types: [file]
       # Format with npm command
       - id: format
         name: Format code with Biome
         entry: npm run format
         language: system
+        pass_filenames: false
+        types: [file]
