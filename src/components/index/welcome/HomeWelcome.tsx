@@ -35,7 +35,7 @@ export default function HomeWelcome() {
         <aside>
           {!isMobile && (
             <img
-              height={700}
+              height={900}
               alt="rocket"
               src="https://www.acmerocketengine.com/homePageAssets/circle.png"
             />

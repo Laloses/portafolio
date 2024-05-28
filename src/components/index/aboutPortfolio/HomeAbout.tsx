@@ -116,7 +116,7 @@ export default function HomeAbout() {
         </Button>
       </Container>
       <Divider aria-hidden="true">
-        <Tooltip title="Sobre esta página">
+        <Tooltip title="Roadmap de este portafolio">
           <a href="#roadmap" style={{ textDecoration: 'none' }}>
             <Typography variant="h1" id="roadmap">
               🗺️

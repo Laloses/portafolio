@@ -1,6 +1,5 @@
 div.roadmap {
     position: relative;
-    text-align: center;
     padding-top: 3rem;
     padding-bottom: 3rem;
 
@@ -22,5 +21,23 @@ div.roadmap {
     & > * {
         position: relative;
         z-index: 1;
+    }
+    .float-left {
+        position: absolute;
+        top: 40%;
+        left: 10%;
+    }
+    .center {
+        text-align: center;
+        flex-grow: 1;
+    }
+
+    @media (max-width: 600px) {
+        .float-left {
+            position: relative;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
     }
 }

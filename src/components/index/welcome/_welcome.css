@@ -15,7 +15,7 @@ div.welcome {
     background-image: url("https://th.bing.com/th/id/OIG4.hMc8n.nzHdWZ9L6uPtuL?pid=ImgGn");
     background-size: cover;
     background-repeat: no-repeat;
-    opacity: 0.2; 
+    opacity: 0.2;
     z-index: 0;
   }
   & > * {
@@ -48,6 +48,10 @@ div.welcome {
     margin-bottom: -2.5rem;
   }
 
+  #aboutWeb {
+    animation: wiggle 0.3s infinite;
+  }
+
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, min-content);
@@ -77,17 +81,40 @@ div.welcome {
       z-index: 1;
       justify-self: center;
     }
+    h2{
+      min-height: 200px;
+    }
     aside {
       top: 0;
       position: absolute;
       opacity: 0.4;
       width: 100%;
-      height: 100vh;
+      height: 80vh;
       /* make width of  */
       background-image: url("https://www.acmerocketengine.com/homePageAssets/circle.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
     }
+    .MuiDivider-fullWidth {
+      height: fit-content;
+    }
+  }
+}
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
