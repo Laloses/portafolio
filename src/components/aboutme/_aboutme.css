@@ -20,4 +20,17 @@
             }
         }
     }
+
+    @media (max-width: 600px) {
+        section .flex {
+            flex-direction: column;
+
+            img{
+                margin-bottom: 2rem;
+            }
+        }
+        section:nth-of-type(even) .flex{
+            flex-direction: column-reverse;
+        }
+    }
 }
