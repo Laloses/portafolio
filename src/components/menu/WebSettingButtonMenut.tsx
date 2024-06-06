@@ -14,13 +14,13 @@ import {
   type KeyboardEvent,
 } from 'react';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-import useToogleTheme from '../../hooks/useToggleTheme';
+import useToggleTheme from '../../hooks/useToggleTheme';
 import ClickAwayListener from '@mui/material/ClickAwayListener';
 
 export default function WebSettingButtonMenu() {
   // Misc
   const theme = useTheme();
-  const toggleColorMode = useToogleTheme();
+  const toggleColorMode = useToggleTheme();
   // State
   const anchorRef = useRef<HTMLButtonElement>(null);
   const [open, setOpen] = useState(false);

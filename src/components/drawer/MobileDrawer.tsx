@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 import { useNavigate } from '@tanstack/react-router';
 import { useCallback, useMemo, useState, type JSX } from 'react';
-import useToogleTheme from '../../hooks/useToggleTheme';
+import useToggleTheme from '../../hooks/useToggleTheme';
 
 interface Props {
   handleDrawerToggle: () => void;
@@ -41,7 +41,7 @@ export default function MobileDrawer(props: Props) {
 
   const goTo = useCallback(
     (to: string) => {
-      navigate({ to });
+      navigate({ to: `/${to}` });
       props.handleDrawerToggle();
     },
     [navigate, props.handleDrawerToggle]
@@ -109,7 +109,7 @@ function MobileSettingsMenu(props: {
   // Misc
   const theme = useTheme();
   // Misc
-  const toggleColorMode = useToogleTheme();
+  const toggleColorMode = useToggleTheme();
 
   return (
     <>
